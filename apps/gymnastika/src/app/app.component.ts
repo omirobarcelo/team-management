@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'gymnastika';
+  todos: { title: string }[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+
+  addTodo() {
+    this.todos.push({
+      title: `New todo ${Math.floor(Math.random() * 1000)}`
+    });
+  }
 }
