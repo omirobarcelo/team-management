@@ -1,6 +1,130 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "gymnastika": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/gymnastika",
+      "sourceRoot": "apps/gymnastika/src",
+      "prefix": "snk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/gymnastika",
+            "index": "apps/gymnastika/src/index.html",
+            "main": "apps/gymnastika/src/main.ts",
+            "polyfills": "apps/gymnastika/src/polyfills.ts",
+            "tsConfig": "apps/gymnastika/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/gymnastika/src/favicon.ico",
+              "apps/gymnastika/src/assets"
+            ],
+            "styles": ["apps/gymnastika/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gymnastika/src/environments/environment.ts",
+                  "with": "apps/gymnastika/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gymnastika:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gymnastika:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gymnastika:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/gymnastika/tsconfig.app.json",
+              "apps/gymnastika/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/gymnastika/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/gymnastika/jest.config.js",
+            "tsConfig": "apps/gymnastika/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/gymnastika/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "gymnastika-e2e": {
+      "root": "apps/gymnastika-e2e",
+      "sourceRoot": "apps/gymnastika-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gymnastika-e2e/cypress.json",
+            "tsConfig": "apps/gymnastika-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gymnastika:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gymnastika:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/gymnastika-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/gymnastika-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
@@ -12,5 +136,6 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "gymnastika"
 }

@@ -10,5 +10,13 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "gymnastika": {
+      "tags": []
+    },
+    "gymnastika-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gymnastika"]
+    }
+  }
 }
