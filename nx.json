@@ -12,11 +12,14 @@
   },
   "projects": {
     "gymnastika": {
-      "tags": []
+      "tags": ["app", "frontend"]
     },
     "gymnastika-e2e": {
-      "tags": [],
+      "tags": ["app", "test", "frontend"],
       "implicitDependencies": ["gymnastika"]
+    },
+    "api": {
+      "tags": ["app", "backend"]
     }
   }
 }

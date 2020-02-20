@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'snk-root',
@@ -6,11 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  todos: { title: string }[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+  todos: { title: string }[] = [];
+
+  constructor(private http: HttpClient) {
+    this.fetch();
+  }
+
+  fetch() {
+    this.http.get<{ title: string }[]>('/api/todos').subscribe(t => (this.todos = t));
+  }
 
   addTodo() {
-    this.todos.push({
-      title: `New todo ${Math.floor(Math.random() * 1000)}`
+    this.http.post('/api/addTodo', {}).subscribe(() => {
+      this.fetch();
     });
   }
 }
