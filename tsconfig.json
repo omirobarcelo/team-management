@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@team-management/exercises": [
+        "libs/feature/shared/exercises/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
