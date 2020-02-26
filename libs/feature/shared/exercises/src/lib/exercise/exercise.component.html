@@ -1,0 +1,15 @@
+<!-- <ul>
+  <li *ngFor="let t of todos" class="todo">{{ t.title }}</li>
+</ul> -->
+<nz-list
+  [nzDataSource]="todos"
+  nzBordered
+  nzSize="small"
+  [nzHeader]="'Header'"
+  [nzFooter]="'Footer'"
+  [nzRenderItem]="smallItem"
+>
+  <ng-template #smallItem let-item>
+    <nz-list-item [nzContent]="item.title"></nz-list-item>
+  </ng-template>
+</nz-list>

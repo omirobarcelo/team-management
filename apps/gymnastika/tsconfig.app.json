@@ -4,5 +4,8 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
+  "angularCompilerOptions": {
+    "enablyIvy": false
+  },
   "files": ["src/main.ts", "src/polyfills.ts"]
 }

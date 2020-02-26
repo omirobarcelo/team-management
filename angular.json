@@ -20,12 +20,17 @@
             "main": "apps/gymnastika/src/main.ts",
             "polyfills": "apps/gymnastika/src/polyfills.ts",
             "tsConfig": "apps/gymnastika/tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "apps/gymnastika/src/favicon.ico",
-              "apps/gymnastika/src/assets"
+              "apps/gymnastika/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
-            "styles": ["apps/gymnastika/src/styles.scss"],
+            "styles": ["apps/gymnastika/src/styles.scss", "apps/gymnastika/src/theme.less"],
             "scripts": []
           },
           "configurations": {
@@ -41,6 +46,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": false,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
