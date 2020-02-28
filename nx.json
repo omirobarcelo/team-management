@@ -24,6 +24,9 @@
     "feature-lazy-app-dashboard": {
       "tags": ["feature:lazy", "frontend"]
     },
+    "feature-lazy-routines": {
+      "tags": ["feature:lazy", "frontend"]
+    },
     "feature-lazy-exercises": {
       "tags": ["feature:lazy", "frontend"]
     }

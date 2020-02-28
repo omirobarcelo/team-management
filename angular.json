@@ -255,6 +255,38 @@
           "styleext": "scss"
         }
       }
+    },
+    "feature-lazy-routines": {
+      "projectType": "library",
+      "root": "libs/feature/lazy/routines",
+      "sourceRoot": "libs/feature/lazy/routines/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/lazy/routines/tsconfig.lib.json",
+              "libs/feature/lazy/routines/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/lazy/routines/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/lazy/routines/jest.config.js",
+            "tsConfig": "libs/feature/lazy/routines/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/lazy/routines/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
