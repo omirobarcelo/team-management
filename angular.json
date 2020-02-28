@@ -30,7 +30,10 @@
                 "output": "/assets/"
               }
             ],
-            "styles": ["apps/gymnastika/src/styles.scss", "apps/gymnastika/src/theme.less"],
+            "styles": [
+              "apps/gymnastika/src/styles.scss",
+              "apps/gymnastika/src/theme.less"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -183,41 +186,6 @@
             "tsConfig": "apps/api/tsconfig.spec.json",
             "passWithNoTests": true
           }
-        }
-      }
-    },
-    "feature-shared-exercises": {
-      "projectType": "library",
-      "root": "libs/feature/shared/exercises",
-      "sourceRoot": "libs/feature/shared/exercises/src",
-      "prefix": "snk",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/feature/shared/exercises/tsconfig.lib.json",
-              "libs/feature/shared/exercises/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/shared/exercises/**"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/feature/shared/exercises/jest.config.js",
-            "tsConfig": "libs/feature/shared/exercises/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/feature/shared/exercises/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
         }
       }
     }

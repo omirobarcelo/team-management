@@ -20,9 +20,6 @@
     },
     "api": {
       "tags": ["app", "backend"]
-    },
-    "feature-shared-exercises": {
-      "tags": ["feature:shared"]
     }
   }
 }

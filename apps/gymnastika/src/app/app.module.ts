@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ExercisesModule } from '@team-management/exercises';
 import { en_US, NgZorroAntdModule, NZ_I18N } from 'ng-zorro-antd';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -20,7 +19,6 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     FormsModule,
-    ExercisesModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
     RouterModule.forRoot(routes, {

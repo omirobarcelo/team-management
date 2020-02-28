@@ -6,7 +6,7 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     float: left;
-  
+
     a {
       width: 100%;
       height: 100%;
@@ -14,17 +14,17 @@
       align-items: center;
     }
   }
-  
+
   [nz-menu] {
     line-height: 64px;
   }
-  
+
   nz-content {
     padding: 0 50px;
     height: 100%;
     overflow: auto;
   }
-  
+
   nz-footer {
     text-align: center;
   }
