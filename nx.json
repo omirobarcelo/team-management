@@ -20,6 +20,9 @@
     },
     "api": {
       "tags": ["app", "backend"]
+    },
+    "feature-lazy-exercises": {
+      "tags": ["feature:lazy", "frontend"]
     }
   }
 }
