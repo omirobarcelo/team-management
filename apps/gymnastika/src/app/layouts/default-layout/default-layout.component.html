@@ -6,7 +6,9 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item nzMatchRouter>Routines</li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/', 'routines']">Routines</a>
+      </li>
       <li nz-menu-item nzMatchRouter>
         <a [routerLink]="['/', 'exercises']">Exercises</a>
       </li>

@@ -4,12 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppDashboardComponent } from './app-dashboard/app-dashboard.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: AppDashboardComponent }
-    ])
-  ],
+  imports: [CommonModule, RouterModule.forChild([{ path: '', pathMatch: 'full', component: AppDashboardComponent }])],
   declarations: [AppDashboardComponent]
 })
 export class AppDashboardModule {}

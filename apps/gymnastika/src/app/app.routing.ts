@@ -13,13 +13,15 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: () =>
-          import('@team-management/lazy/app-dashboard').then(m => m.AppDashboardModule)
+        loadChildren: () => import('@team-management/lazy/app-dashboard').then(m => m.AppDashboardModule)
+      },
+      {
+        path: 'routines',
+        loadChildren: () => import('@team-management/lazy/routines').then(m => m.RoutinesModule)
       },
       {
         path: 'exercises',
-        loadChildren: () =>
-          import('@team-management/lazy/exercises').then(m => m.ExercisesModule)
+        loadChildren: () => import('@team-management/lazy/exercises').then(m => m.ExercisesModule)
       }
     ]
   }

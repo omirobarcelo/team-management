@@ -30,10 +30,7 @@
                 "output": "/assets/"
               }
             ],
-            "styles": [
-              "apps/gymnastika/src/styles.scss",
-              "apps/gymnastika/src/theme.less"
-            ],
+            "styles": ["apps/gymnastika/src/styles.scss", "apps/gymnastika/src/theme.less"],
             "scripts": []
           },
           "configurations": {
@@ -89,10 +86,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/gymnastika/tsconfig.app.json",
-              "apps/gymnastika/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/gymnastika/tsconfig.app.json", "apps/gymnastika/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/gymnastika/**"]
           }
         },
@@ -172,10 +166,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
@@ -234,10 +225,7 @@
               "libs/feature/lazy/app-dashboard/tsconfig.lib.json",
               "libs/feature/lazy/app-dashboard/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/lazy/app-dashboard/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/feature/lazy/app-dashboard/**"]
           }
         },
         "test": {
