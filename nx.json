@@ -21,6 +21,9 @@
     "api": {
       "tags": ["app", "backend"]
     },
+    "feature-lazy-app-dashboard": {
+      "tags": ["feature:lazy", "frontend"]
+    },
     "feature-lazy-exercises": {
       "tags": ["feature:lazy", "frontend"]
     }

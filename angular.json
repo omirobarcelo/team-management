@@ -220,6 +220,41 @@
           "styleext": "scss"
         }
       }
+    },
+    "feature-lazy-app-dashboard": {
+      "projectType": "library",
+      "root": "libs/feature/lazy/app-dashboard",
+      "sourceRoot": "libs/feature/lazy/app-dashboard/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/lazy/app-dashboard/tsconfig.lib.json",
+              "libs/feature/lazy/app-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature/lazy/app-dashboard/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/lazy/app-dashboard/jest.config.js",
+            "tsConfig": "libs/feature/lazy/app-dashboard/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/lazy/app-dashboard/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

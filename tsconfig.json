@@ -16,6 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@team-management/lazy/app-dashboard": [
+        "libs/feature/lazy/app-dashboard/src/index.ts"
+      ],
       "@team-management/lazy/exercises": [
         "libs/feature/lazy/exercises/src/index.ts"
       ]
