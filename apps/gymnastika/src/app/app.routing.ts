@@ -5,6 +5,12 @@ export const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
-    children: []
+    children: [
+      {
+        path: 'exercises',
+        loadChildren: () =>
+          import('@team-management/lazy/exercises').then(m => m.ExercisesModule)
+      }
+    ]
   }
 ];

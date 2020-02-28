@@ -193,7 +193,7 @@
       "projectType": "library",
       "root": "libs/feature/lazy/exercises",
       "sourceRoot": "libs/feature/lazy/exercises/src",
-      "prefix": "team-management",
+      "prefix": "snk",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

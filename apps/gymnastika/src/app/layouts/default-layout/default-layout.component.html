@@ -7,13 +7,13 @@
     </div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <li nz-menu-item nzMatchRouter>Routines</li>
-      <li nz-menu-item nzMatchRouter>Exercises</li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/', 'exercises']">Exercises</a>
+      </li>
     </ul>
   </nz-header>
   <nz-content>
-    <div style="background: #fff; padding: 24px; min-height: 280px;">
-      Content
-    </div>
+    <router-outlet></router-outlet>
   </nz-content>
   <nz-footer>Shoguneko Dev's Gymnastika</nz-footer>
 </nz-layout>
