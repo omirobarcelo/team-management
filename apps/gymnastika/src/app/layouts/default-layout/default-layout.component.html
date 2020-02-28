@@ -1,0 +1,17 @@
+<nz-layout class="main-page">
+  <nz-header>
+    <div class="logo">
+        <a [routerLink]="['/']">
+        <img alt="logo" src="./assets/favicon.ico" />
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item nzMatchRouter>Routines</li>
+      <li nz-menu-item nzMatchRouter>Exercises</li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <div style="background: #fff; padding: 24px; min-height: 280px;">Content</div>
+  </nz-content>
+  <nz-footer>Shoguneko Dev's Gymnastika</nz-footer>
+</nz-layout>
