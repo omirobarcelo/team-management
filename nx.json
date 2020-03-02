@@ -29,6 +29,9 @@
     },
     "feature-lazy-exercises": {
       "tags": ["feature:lazy", "frontend"]
+    },
+    "utils-http": {
+      "tags": ["shared", "frontend"]
     }
   }
 }
