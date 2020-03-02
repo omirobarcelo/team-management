@@ -32,6 +32,9 @@
     },
     "utils-http": {
       "tags": ["shared", "frontend"]
+    },
+    "feature-api": {
+      "tags": ["feature:api"]
     }
   }
 }
