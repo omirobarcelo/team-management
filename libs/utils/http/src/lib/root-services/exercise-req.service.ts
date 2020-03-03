@@ -15,7 +15,7 @@ export class ExerciseReqService {
       category: {
         id: 'catA',
         name: 'Cat A'
-      }  
+      }
     },
     {
       id: 'ex2',
@@ -24,7 +24,7 @@ export class ExerciseReqService {
       category: {
         id: 'catA',
         name: 'Cat A'
-      }  
+      }
     },
     {
       id: 'ex3',
@@ -33,7 +33,7 @@ export class ExerciseReqService {
       category: {
         id: 'catA',
         name: 'Cat A'
-      }  
+      }
     },
     {
       id: 'ex1',
@@ -42,7 +42,7 @@ export class ExerciseReqService {
       category: {
         id: 'catB',
         name: 'Cat B'
-      }  
+      }
     },
     {
       id: 'ex2',
@@ -51,7 +51,7 @@ export class ExerciseReqService {
       category: {
         id: 'catB',
         name: 'Cat B'
-      }  
+      }
     },
     {
       id: 'ex3',
@@ -60,7 +60,7 @@ export class ExerciseReqService {
       category: {
         id: 'catB',
         name: 'Cat B'
-      }  
+      }
     },
     {
       id: 'ex1',
@@ -69,7 +69,7 @@ export class ExerciseReqService {
       category: {
         id: 'catC',
         name: 'Cat C'
-      }  
+      }
     },
     {
       id: 'ex2',
@@ -78,7 +78,7 @@ export class ExerciseReqService {
       category: {
         id: 'catC',
         name: 'Cat C'
-      }  
+      }
     },
     {
       id: 'ex3',
@@ -87,11 +87,11 @@ export class ExerciseReqService {
       category: {
         id: 'catC',
         name: 'Cat C'
-      }  
+      }
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
   getAllExercises(catId?: string): Observable<Exercise[]> {
     const exercises = catId ? this._exercises.filter(ex => ex.category.id === catId) : this._exercises;
