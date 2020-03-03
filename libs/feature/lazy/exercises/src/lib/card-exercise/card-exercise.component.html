@@ -1,4 +1,7 @@
-<nz-card>
-  <p>{{ exercise.name }}</p>
-  <p>{{ exercise.muscles }}</p>
+<nz-card nzHoverable style="width: 60%;">
+  <img width="160" alt="Exercise Image" [src]="imgSrc" />
+  <div style="display: inline-block; margin-left: 1rem;">
+    <p><b>Exercise</b> {{ exercise.name }}</p>
+    <p><i>Muscles</i> {{ exercise.muscles }}</p>
+  </div>
 </nz-card>

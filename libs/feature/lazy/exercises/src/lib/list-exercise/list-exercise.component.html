@@ -10,7 +10,9 @@
       </li>
     </ul>
   </nz-sider>
-  <nz-content>
-    <div *ngFor="let ex of exercises$ | async">{{ ex | json }}</div>
+  <nz-content style="padding: 1rem;">
+    <div *ngFor="let ex of exercises$ | async" style="margin-bottom: 0.5rem;">
+      <snk-card-exercise [exercise]="ex"></snk-card-exercise>
+    </div>
   </nz-content>
 </nz-layout>
