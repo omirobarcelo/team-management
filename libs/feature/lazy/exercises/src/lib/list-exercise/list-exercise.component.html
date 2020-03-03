@@ -1,14 +1,16 @@
 <nz-layout class="page-layout">
   <nz-sider nzCollapsible nzBreakpoint="md" [nzCollapsedWidth]="0">
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item nzSelected (click)="log('all')">
+      <li nz-menu-item nzSelected (click)="selectCategory(null)">
         <span>All</span>
       </li>
       <li nz-menu-divider></li>
-      <li *ngFor="let cat of categories$ | async" nz-menu-item (click)="log(cat.id)">
+      <li *ngFor="let cat of categories$ | async" nz-menu-item (click)="selectCategory(cat.id)">
         <span>{{ cat.name }}</span>
       </li>
     </ul>
   </nz-sider>
-  <nz-content><p>list-exercise works!</p></nz-content>
+  <nz-content>
+    <div *ngFor="let ex of exercises$ | async">{{ ex | json }}</div>
+  </nz-content>
 </nz-layout>
