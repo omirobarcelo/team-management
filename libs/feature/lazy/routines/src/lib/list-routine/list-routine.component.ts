@@ -11,10 +11,21 @@ import { Observable } from 'rxjs';
 export class ListRoutineComponent implements OnInit {
   routines$: Observable<Routine[]>;
 
+  selectedRoutine: Routine;
+
   constructor(private _routineReqService: RoutineReqService) {}
 
   ngOnInit(): void {
     this.routines$ = this._routineReqService.getAllRoutines();
+  }
+
+  newRoutine(): void {
+    this._routineReqService
+      .addRoutine({ name: 'New routine', exercises: [] })
+      .subscribe(routine => {
+        this.routines$ = this._routineReqService.getAllRoutines();
+        this.selectedRoutine = routine;
+      });
   }
 
   log(arg: any): void {
