@@ -1,1 +1,21 @@
-<p>{{ routine | json }}</p>
+<input nz-input placeholder="Name" [(ngModel)]="name" style="margin-bottom: 0.5rem;" />
+
+<ng-container *ngFor="let ex of routine.exercises">
+  <div style="margin-bottom: 0.5rem;">{{ ex | json }}</div>
+</ng-container>
+<nz-select
+  [ngModel]="selectedExercise"
+  [compareWith]="exerciseComparator"
+  (ngModelChange)="addExercise($event)"
+  nzShowSearch
+  nzAllowClear
+  nzPlaceHolder="Select exercise"
+  style="width: 300px; margin-bottom: 0.5rem;"
+>
+  <nz-option *ngFor="let ex of exercises" [nzValue]="ex" [nzLabel]="ex.name"></nz-option>
+</nz-select>
+
+<div>
+  <button nz-button nzType="primary" (click)="save()" style="margin-right: 0.25rem;"><i nz-icon nzType="save" nzTheme="outline"></i>Save</button>
+  <button nz-button nzType="primary" (click)="log('print')"><i nz-icon nzType="printer" nzTheme="outline"></i>Print version</button>
+</div>

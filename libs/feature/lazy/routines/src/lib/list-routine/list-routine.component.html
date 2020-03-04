@@ -19,6 +19,6 @@
     <!-- <div *ngFor="let ex of exercises$ | async" style="margin-bottom: 0.5rem;">
       <span>something</span>
     </div> -->
-    <snk-update-routine [routine]="selectedRoutine"></snk-update-routine>
+    <snk-update-routine *ngIf="selectedRoutine" [routine]="selectedRoutine"></snk-update-routine>
   </nz-content>
 </nz-layout>

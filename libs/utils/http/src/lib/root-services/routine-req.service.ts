@@ -27,7 +27,7 @@ export class RoutineReqService {
 
   updateRoutine(routine: Routine): Observable<Routine> {
     const idx = this._routines.findIndex(r => r.id === routine.id);
-    this._routines.splice(idx, 0, routine);
+    this._routines.splice(idx, 1, routine);
     return timer(750).pipe(mapTo(routine));
   }
 

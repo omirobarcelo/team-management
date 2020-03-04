@@ -1,6 +1,6 @@
-import { Exercise } from '../exercises';
+import { RoutineExercise } from './routine-exercise.interface';
 
 export interface CreateRoutine {
   name: string;
-  exercises: Exercise[];
+  exercises: RoutineExercise[];
 }

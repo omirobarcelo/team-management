@@ -9,8 +9,8 @@ import { mapTo } from 'rxjs/operators';
 export class ExerciseReqService {
   private _exercises: Exercise[] = [
     {
-      id: 'ex1',
-      name: 'Ex 1',
+      id: 'exA1',
+      name: 'Ex A1',
       muscles: ['m1', 'm2'],
       category: {
         id: 'catA',
@@ -18,8 +18,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex2',
-      name: 'Ex 2',
+      id: 'exA2',
+      name: 'Ex A2',
       muscles: ['m1', 'm2', 'm3'],
       category: {
         id: 'catA',
@@ -27,8 +27,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex3',
-      name: 'Ex 3',
+      id: 'exA3',
+      name: 'Ex A3',
       muscles: ['m1', 'm2'],
       category: {
         id: 'catA',
@@ -36,8 +36,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex1',
-      name: 'Ex 1',
+      id: 'exB1',
+      name: 'Ex B1',
       muscles: ['m1'],
       category: {
         id: 'catB',
@@ -45,8 +45,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex2',
-      name: 'Ex 2',
+      id: 'exB2',
+      name: 'Ex B2',
       muscles: ['m1', 'm2'],
       category: {
         id: 'catB',
@@ -54,8 +54,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex3',
-      name: 'Ex 3',
+      id: 'exB3',
+      name: 'Ex B3',
       muscles: ['m1', 'm2'],
       category: {
         id: 'catB',
@@ -63,8 +63,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex1',
-      name: 'Ex 1',
+      id: 'exC1',
+      name: 'Ex C1',
       muscles: ['m1', 'm2', 'm3'],
       category: {
         id: 'catC',
@@ -72,8 +72,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex2',
-      name: 'Ex 2',
+      id: 'exC2',
+      name: 'Ex C2',
       muscles: ['m1', 'm2'],
       category: {
         id: 'catC',
@@ -81,8 +81,8 @@ export class ExerciseReqService {
       }
     },
     {
-      id: 'ex3',
-      name: 'Ex 3',
+      id: 'exC3',
+      name: 'Ex C3',
       muscles: ['m1'],
       category: {
         id: 'catC',
