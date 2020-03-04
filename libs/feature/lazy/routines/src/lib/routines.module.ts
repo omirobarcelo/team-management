@@ -6,6 +6,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ListRoutineComponent } from './list-routine/list-routine.component';
+import { UpdateRoutineComponent } from './update-routine/update-routine.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ListRoutineComponent } from './list-routine/list-routine.component';
     NzMenuModule,
     RouterModule.forChild([{ path: '', pathMatch: 'full', component: ListRoutineComponent }])
   ],
-  declarations: [ListRoutineComponent]
+  declarations: [ListRoutineComponent, UpdateRoutineComponent]
 })
 export class RoutinesModule {}

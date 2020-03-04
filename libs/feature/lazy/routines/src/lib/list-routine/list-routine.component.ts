@@ -20,12 +20,10 @@ export class ListRoutineComponent implements OnInit {
   }
 
   newRoutine(): void {
-    this._routineReqService
-      .addRoutine({ name: 'New routine', exercises: [] })
-      .subscribe(routine => {
-        this.routines$ = this._routineReqService.getAllRoutines();
-        this.selectedRoutine = routine;
-      });
+    this._routineReqService.addRoutine({ name: 'New routine', exercises: [] }).subscribe(routine => {
+      this.routines$ = this._routineReqService.getAllRoutines();
+      this.selectedRoutine = routine;
+    });
   }
 
   log(arg: any): void {

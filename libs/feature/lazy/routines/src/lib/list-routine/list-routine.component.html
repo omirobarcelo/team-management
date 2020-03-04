@@ -5,7 +5,7 @@
         *ngFor="let routine of routines$ | async"
         nz-menu-item
         [nzSelected]="routine.id === selectedRoutine?.id"
-        (click)="log(routine.id)"
+        (click)="selectedRoutine = routine"
       >
         <span>{{ routine.name }}</span>
       </li>
@@ -19,6 +19,6 @@
     <!-- <div *ngFor="let ex of exercises$ | async" style="margin-bottom: 0.5rem;">
       <span>something</span>
     </div> -->
-    <div>{{ selectedRoutine | json }}</div>
+    <snk-update-routine [routine]="selectedRoutine"></snk-update-routine>
   </nz-content>
 </nz-layout>
