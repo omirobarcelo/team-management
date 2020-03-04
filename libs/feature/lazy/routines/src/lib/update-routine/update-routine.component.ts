@@ -23,13 +23,13 @@ export class UpdateRoutineComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.name = this.routine.name;
-    this.routineExercises = this.routine.exercises;
+    this.routineExercises = [...this.routine.exercises];
     this._exReqService.getAllExercises().subscribe(exercises => this.exercises = exercises);
   }
 
   ngOnChanges(): void {
     this.name = this.routine.name;
-    this.routineExercises = this.routine.exercises;
+    this.routineExercises = [...this.routine.exercises];
   }
 
   addExercise(ex: Exercise): void {

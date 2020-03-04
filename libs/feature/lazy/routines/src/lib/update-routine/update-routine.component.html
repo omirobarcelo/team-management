@@ -1,8 +1,8 @@
 <input nz-input placeholder="Name" [(ngModel)]="name" style="margin-bottom: 0.5rem;" />
 
-<ng-container *ngFor="let ex of routine.exercises">
-  <div style="margin-bottom: 0.5rem;">{{ ex | json }}</div>
-</ng-container>
+<div *ngFor="let ex of routineExercises" style="margin-bottom: 0.5rem;">
+  <snk-card-routine-exercise [exercise]="ex"></snk-card-routine-exercise>
+</div>
 <nz-select
   [ngModel]="selectedExercise"
   [compareWith]="exerciseComparator"
