@@ -28,3 +28,25 @@
     text-align: center;
   }
 }
+
+@media print {
+  html,
+  body {
+    height: 100%;
+  }
+
+  nz-header,
+  nz-footer {
+    display: none;
+  }
+
+  .main-page {
+    nz-content {
+      overflow: visible;
+    }
+  }
+
+  ::ng-deep nz-card {
+    page-break-inside: avoid;
+  }
+}

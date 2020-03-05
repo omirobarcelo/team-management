@@ -12,6 +12,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { CardRoutineExerciseComponent } from './card-routine-exercise/card-routine-exercise.component';
 import { ListRoutineComponent } from './list-routine/list-routine.component';
+import { PrintRoutineComponent } from './print-routine/print-routine.component';
 import { UpdateRoutineComponent } from './update-routine/update-routine.component';
 
 @NgModule({
@@ -26,8 +27,11 @@ import { UpdateRoutineComponent } from './update-routine/update-routine.componen
     NzLayoutModule,
     NzMenuModule,
     NzSelectModule,
-    RouterModule.forChild([{ path: '', pathMatch: 'full', component: ListRoutineComponent }])
+    RouterModule.forChild([
+      { path: '', pathMatch: 'full', component: ListRoutineComponent },
+      { path: ':routineId/print', component: PrintRoutineComponent }
+    ])
   ],
-  declarations: [ListRoutineComponent, UpdateRoutineComponent, CardRoutineExerciseComponent]
+  declarations: [ListRoutineComponent, UpdateRoutineComponent, CardRoutineExerciseComponent, PrintRoutineComponent]
 })
 export class RoutinesModule {}

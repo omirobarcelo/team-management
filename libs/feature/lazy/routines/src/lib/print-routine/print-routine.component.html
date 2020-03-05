@@ -1,0 +1,23 @@
+<div *ngIf="routine$ | async as routine" style="width: 18cm;">
+  <h2 nz-title style="margin-bottom: 0.75rem;">{{ routine.name }}</h2>
+
+  <div *ngFor="let ex of routine.exercises" style="margin-bottom: 0.5rem;">
+    <nz-card nzHoverable [nzActions]="[actionRepetions, actionTimes, actionWeight]" style="width: 60%;">
+      <img width="160" alt="Exercise Image" [src]="getImgSrc(ex)" />
+      <div style="display: inline-block; margin-left: 1rem;">
+        <p><b>Exercise</b> {{ ex.name }}</p>
+        <p><i>Muscles</i> {{ ex.muscles }}</p>
+      </div>
+    </nz-card>
+
+    <ng-template #actionRepetions>
+      <span>Repetitions: {{ ex.repetitions }}</span>
+    </ng-template>
+    <ng-template #actionTimes>
+      <span>Times: {{ ex.times }}</span>
+    </ng-template>
+    <ng-template #actionWeight>
+      <span>Kg: {{ ex.weight }}</span>
+    </ng-template>
+  </div>
+</div>
