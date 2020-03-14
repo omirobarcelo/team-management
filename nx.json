@@ -21,8 +21,20 @@
     "api": {
       "tags": ["app", "backend"]
     },
-    "feature-shared-exercises": {
-      "tags": ["feature:shared"]
+    "feature-lazy-app-dashboard": {
+      "tags": ["feature:lazy", "frontend"]
+    },
+    "feature-lazy-routines": {
+      "tags": ["feature:lazy", "frontend"]
+    },
+    "feature-lazy-exercises": {
+      "tags": ["feature:lazy", "frontend"]
+    },
+    "utils-http": {
+      "tags": ["shared", "frontend"]
+    },
+    "data": {
+      "tags": ["shared"]
     }
   }
 }

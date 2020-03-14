@@ -86,10 +86,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/gymnastika/tsconfig.app.json",
-              "apps/gymnastika/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/gymnastika/tsconfig.app.json", "apps/gymnastika/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/gymnastika/**"]
           }
         },
@@ -169,10 +166,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
@@ -186,38 +180,151 @@
         }
       }
     },
-    "feature-shared-exercises": {
+    "feature-lazy-exercises": {
       "projectType": "library",
-      "root": "libs/feature/shared/exercises",
-      "sourceRoot": "libs/feature/shared/exercises/src",
+      "root": "libs/feature/lazy/exercises",
+      "sourceRoot": "libs/feature/lazy/exercises/src",
       "prefix": "snk",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/feature/shared/exercises/tsconfig.lib.json",
-              "libs/feature/shared/exercises/tsconfig.spec.json"
+              "libs/feature/lazy/exercises/tsconfig.lib.json",
+              "libs/feature/lazy/exercises/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/shared/exercises/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/feature/lazy/exercises/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/feature/shared/exercises/jest.config.js",
-            "tsConfig": "libs/feature/shared/exercises/tsconfig.spec.json",
+            "jestConfig": "libs/feature/lazy/exercises/jest.config.js",
+            "tsConfig": "libs/feature/lazy/exercises/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/feature/shared/exercises/src/test-setup.ts"
+            "setupFile": "libs/feature/lazy/exercises/src/test-setup.ts"
           }
         }
       },
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "feature-lazy-app-dashboard": {
+      "projectType": "library",
+      "root": "libs/feature/lazy/app-dashboard",
+      "sourceRoot": "libs/feature/lazy/app-dashboard/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/lazy/app-dashboard/tsconfig.lib.json",
+              "libs/feature/lazy/app-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/lazy/app-dashboard/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/lazy/app-dashboard/jest.config.js",
+            "tsConfig": "libs/feature/lazy/app-dashboard/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/lazy/app-dashboard/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "feature-lazy-routines": {
+      "projectType": "library",
+      "root": "libs/feature/lazy/routines",
+      "sourceRoot": "libs/feature/lazy/routines/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/lazy/routines/tsconfig.lib.json",
+              "libs/feature/lazy/routines/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/lazy/routines/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/lazy/routines/jest.config.js",
+            "tsConfig": "libs/feature/lazy/routines/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/lazy/routines/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "utils-http": {
+      "projectType": "library",
+      "root": "libs/utils/http",
+      "sourceRoot": "libs/utils/http/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/utils/http/tsconfig.lib.json", "libs/utils/http/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/utils/http/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/utils/http/jest.config.js",
+            "tsConfig": "libs/utils/http/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/utils/http/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/data/tsconfig.lib.json", "libs/data/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/data/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "tsConfig": "libs/data/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
         }
       }
     }

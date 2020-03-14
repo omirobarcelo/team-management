@@ -1,0 +1,24 @@
+<nz-layout style="height: 100%;">
+  <nz-sider nzCollapsible nzBreakpoint="md" [nzCollapsedWidth]="0">
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li
+        *ngFor="let routine of routines$ | async"
+        nz-menu-item
+        [nzSelected]="routine.id === selectedRoutine?.id"
+        (click)="selectedRoutine = routine"
+      >
+        <span>{{ routine.name }}</span>
+      </li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item (click)="newRoutine()">
+        <i nz-icon nzType="plus" nzTheme="outline"></i><span>New routine</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-content style="padding: 1rem;">
+    <!-- <div *ngFor="let ex of exercises$ | async" style="margin-bottom: 0.5rem;">
+      <span>something</span>
+    </div> -->
+    <snk-update-routine *ngIf="selectedRoutine" [routine]="selectedRoutine"></snk-update-routine>
+  </nz-content>
+</nz-layout>
