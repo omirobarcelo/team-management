@@ -35,6 +35,9 @@
     },
     "data": {
       "tags": ["shared"]
+    },
+    "feature-api-exercises": {
+      "tags": ["feature:api"]
     }
   }
 }

@@ -327,6 +327,32 @@
           }
         }
       }
+    },
+    "feature-api-exercises": {
+      "root": "libs/feature/api/exercises",
+      "sourceRoot": "libs/feature/api/exercises/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/api/exercises/tsconfig.lib.json",
+              "libs/feature/api/exercises/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/exercises/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/exercises/jest.config.js",
+            "tsConfig": "libs/feature/api/exercises/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

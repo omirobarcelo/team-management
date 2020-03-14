@@ -1,5 +1,5 @@
-import { Module } from '@nestjs/common';
-
+import { DynamicModule, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { ExercisesModule } from '@team-management/api/exercises';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -8,4 +8,13 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  static forRoot(): DynamicModule {
+    return {
+      module: AppModule,
+      imports: [ExercisesModule.forRoot()]
+    };
+  }
+
+  public configure(consumer: MiddlewareConsumer) {}
+}
