@@ -1,8 +1,5 @@
 {
-  "rulesDirectory": [
-    "node_modules/@nrwl/workspace/src/tslint",
-    "node_modules/codelyzer"
-  ],
+  "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint", "node_modules/codelyzer"],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -17,17 +14,12 @@
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
     "no-arg": true,
     "no-bitwise": true,
-    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace", "log"],
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
@@ -66,11 +58,7 @@
           },
           {
             "sourceTag": "feature:lazy",
-            "onlyDependOnLibsWithTags": [
-              "shared",
-              "feature:shared",
-              "feature:api"
-            ]
+            "onlyDependOnLibsWithTags": ["shared", "feature:shared", "feature:api"]
           },
           {
             "sourceTag": "feature:api",
