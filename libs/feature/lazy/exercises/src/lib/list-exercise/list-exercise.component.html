@@ -1,0 +1,18 @@
+<nz-layout class="page-layout">
+  <nz-sider nzCollapsible nzBreakpoint="md" [nzCollapsedWidth]="0">
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item nzSelected (click)="selectCategory(null)">
+        <span>All</span>
+      </li>
+      <li nz-menu-divider></li>
+      <li *ngFor="let cat of categories$ | async" nz-menu-item (click)="selectCategory(cat.id)">
+        <span>{{ cat.name }}</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-content style="padding: 1rem;">
+    <div *ngFor="let ex of exercises$ | async" style="margin-bottom: 0.5rem;">
+      <snk-card-exercise [exercise]="ex"></snk-card-exercise>
+    </div>
+  </nz-content>
+</nz-layout>

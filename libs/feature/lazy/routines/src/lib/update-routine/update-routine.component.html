@@ -1,0 +1,25 @@
+<input nz-input placeholder="Name" [(ngModel)]="name" style="margin-bottom: 0.5rem;" />
+
+<div *ngFor="let ex of routineExercises" style="margin-bottom: 0.5rem;">
+  <snk-card-routine-exercise [exercise]="ex"></snk-card-routine-exercise>
+</div>
+<nz-select
+  [ngModel]="selectedExercise"
+  [compareWith]="exerciseComparator"
+  (ngModelChange)="addExercise($event)"
+  nzShowSearch
+  nzAllowClear
+  nzPlaceHolder="Select exercise"
+  style="width: 300px; margin-bottom: 0.5rem;"
+>
+  <nz-option *ngFor="let ex of exercises" [nzValue]="ex" [nzLabel]="ex.name"></nz-option>
+</nz-select>
+
+<div>
+  <button nz-button nzType="primary" (click)="save()" style="margin-right: 0.25rem;">
+    <i nz-icon nzType="save" nzTheme="outline"></i>Save
+  </button>
+  <button nz-button nzType="primary" [routerLink]="[routine.id, 'print']">
+    <i nz-icon nzType="printer" nzTheme="outline"></i>Print version
+  </button>
+</div>
