@@ -1,4 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { ExerciseEntity } from '../entities/exercise.entity';
 
 @Injectable()
 export class ExercisesService {
@@ -86,7 +89,19 @@ export class ExercisesService {
     }
   ];
 
-  getAll() {
-    return this._exercises;
+  constructor(
+    @InjectRepository(ExerciseEntity)
+    private readonly _repository: Repository<ExerciseEntity>
+  ) {}
+
+  async getAll() {
+    // return this._exercises;
+    const obj = this._repository.create({
+      name: 'Ex A2',
+      muscles: ['m2'],
+      category: { id: 'catA', name: 'Cat A' }
+    });
+    await this._repository.save(obj);
+    return this._repository.find();
   }
 }

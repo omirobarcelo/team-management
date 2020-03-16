@@ -1,18 +1,16 @@
 import { DynamicModule, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ExercisesModule } from '@team-management/api/exercises';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { databaseProviders } from './database.providers';
 
-@Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService]
-})
+@Module({})
 export class AppModule implements NestModule {
   static forRoot(): DynamicModule {
     return {
       module: AppModule,
-      imports: [ExercisesModule.forRoot()]
+      imports: [
+        databaseProviders(),
+        ExercisesModule.forRoot()
+      ]
     };
   }
 

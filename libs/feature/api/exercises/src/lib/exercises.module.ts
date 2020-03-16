@@ -1,5 +1,7 @@
 import { DynamicModule, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { exercisesControllers } from './controllers';
+import { exercisesEntities } from './entities';
 import { exercisesServices } from './services';
 
 @Module({})
@@ -16,7 +18,7 @@ export class ExercisesModule implements NestModule {
   static forRoot(): DynamicModule {
     return {
       module: ExercisesModule,
-      imports: [],
+      imports: [TypeOrmModule.forFeature([...exercisesEntities])],
       controllers: [...exercisesControllers],
       providers: [...exercisesServices],
       exports: []
