@@ -1,18 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Exercise } from '@team-management/data/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseReqService {
-  constructor(private http: HttpClient) {}
+  constructor(private data: DataService) {}
 
   getAllExercises(catId?: string): Observable<Exercise[]> {
-    return this.http
-      .get<any[]>(`api/exercises`)
+    return this.data
+      .getAll<Exercise[]>(`exercises`)
       .pipe(map(ret => (catId ? ret.filter(ex => ex.category.id === catId) : ret)));
   }
 }
