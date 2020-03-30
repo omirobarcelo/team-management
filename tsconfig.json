@@ -21,7 +21,8 @@
       "@team-management/lazy/routines": ["libs/feature/lazy/routines/src/index.ts"],
       "@team-management/lazy/exercises": ["libs/feature/lazy/exercises/src/index.ts"],
       "@team-management/utils/http": ["libs/utils/http/src/index.ts"],
-      "@team-management/api/exercises": ["libs/feature/api/exercises/src/index.ts"]
+      "@team-management/api/exercises": ["libs/feature/api/exercises/src/index.ts"],
+      "@team-management/api/exercises/*": ["libs/feature/api/exercises/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

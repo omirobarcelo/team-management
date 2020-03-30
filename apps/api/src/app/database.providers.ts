@@ -5,6 +5,8 @@ import { exercisesEntities } from '@team-management/api/exercises';
 import * as path from 'path';
 
 export const databaseProviders = (configService: ConfigService) => {
+  const normalizePath = (_path: string) => (path.normalize(path.join(__dirname, _path)));
+
   const commonDB: TypeOrmModuleOptions = {
     type: 'sqlite',
     entities: [...exercisesEntities]
@@ -19,7 +21,7 @@ export const databaseProviders = (configService: ConfigService) => {
     logging: configService.get<boolean>('TYPEORM_ENABLE_LOGGING', true) ? ['query', 'error'] : [],
     cache: true,
     synchronize: configService.get<boolean>('TYPEORM_SYNCHRONIZE', false),
-    migrations: [],
+    migrations: [normalizePath('_migrations/*.js'), normalizePath('_seeds/dev/*.js')],
     migrationsRun: configService.get<boolean>('TYPEORM_MIGRATIONS_RUN', true),
     dropSchema: configService.get<boolean>('DROP_SCHEMA', false)
   };

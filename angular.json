@@ -20,7 +20,7 @@
             "main": "apps/gymnastika/src/main.ts",
             "polyfills": "apps/gymnastika/src/polyfills.ts",
             "tsConfig": "apps/gymnastika/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/gymnastika/src/favicon.ico",
               "apps/gymnastika/src/assets",
@@ -46,7 +46,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -141,7 +141,8 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": ["apps/api/src/assets"],
+            "webpackConfig": "tools/api-webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -161,6 +162,11 @@
           "builder": "@nrwl/node:execute",
           "options": {
             "buildTarget": "api:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "api:build:production"
+            }
           }
         },
         "lint": {
