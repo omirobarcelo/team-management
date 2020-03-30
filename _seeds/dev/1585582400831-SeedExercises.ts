@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { ExerciseEntity } from '@team-management/api/exercises/entities/exercise.entity';
 
-export class SeedExercises1584903747780 implements MigrationInterface {
+export class SeedExercises1585582400831 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.manager.getRepository<ExerciseEntity>(ExerciseEntity).save(
       plainToClass<ExerciseEntity, any[]>(ExerciseEntity, [

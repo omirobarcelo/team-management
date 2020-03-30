@@ -18,6 +18,9 @@ export class ExerciseEntity extends BaseEntity {
   @Column('varchar', { default: 'New Exercise' })
   name: string;
 
+  @Column('varchar', { nullable: true })
+  slug: string;
+
   @Column('simple-array', { default: '[]' })
   muscles: string[];
 

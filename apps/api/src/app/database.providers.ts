@@ -5,7 +5,7 @@ import { exercisesEntities } from '@team-management/api/exercises';
 import * as path from 'path';
 
 export const databaseProviders = (configService: ConfigService) => {
-  const normalizePath = (_path: string) => (path.normalize(path.join(__dirname, _path)));
+  const normalizePath = (_path: string) => path.normalize(path.join(__dirname, _path));
 
   const commonDB: TypeOrmModuleOptions = {
     type: 'sqlite',
