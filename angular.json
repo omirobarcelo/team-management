@@ -20,7 +20,7 @@
             "main": "apps/gymnastika/src/main.ts",
             "polyfills": "apps/gymnastika/src/polyfills.ts",
             "tsConfig": "apps/gymnastika/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/gymnastika/src/favicon.ico",
               "apps/gymnastika/src/assets",
@@ -46,7 +46,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -141,7 +141,8 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": ["apps/api/src/assets"],
+            "webpackConfig": "tools/api-webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -161,6 +162,11 @@
           "builder": "@nrwl/node:execute",
           "options": {
             "buildTarget": "api:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "api:build:production"
+            }
           }
         },
         "lint": {
@@ -208,7 +214,7 @@
       },
       "schematics": {
         "@nrwl/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       }
     },
@@ -240,7 +246,7 @@
       },
       "schematics": {
         "@nrwl/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       }
     },
@@ -272,7 +278,7 @@
       },
       "schematics": {
         "@nrwl/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       }
     },
@@ -301,7 +307,7 @@
       },
       "schematics": {
         "@nrwl/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       }
     },
@@ -323,6 +329,55 @@
           "options": {
             "jestConfig": "libs/data/jest.config.js",
             "tsConfig": "libs/data/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "feature-api-exercises": {
+      "root": "libs/feature/api/exercises",
+      "sourceRoot": "libs/feature/api/exercises/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/api/exercises/tsconfig.lib.json",
+              "libs/feature/api/exercises/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/exercises/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/exercises/jest.config.js",
+            "tsConfig": "libs/feature/api/exercises/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "feature-api-common": {
+      "root": "libs/feature/api/common",
+      "sourceRoot": "libs/feature/api/common/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/api/common/tsconfig.lib.json", "libs/feature/api/common/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/common/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/common/jest.config.js",
+            "tsConfig": "libs/feature/api/common/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

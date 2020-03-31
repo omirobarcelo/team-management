@@ -20,7 +20,10 @@
       "@team-management/lazy/app-dashboard": ["libs/feature/lazy/app-dashboard/src/index.ts"],
       "@team-management/lazy/routines": ["libs/feature/lazy/routines/src/index.ts"],
       "@team-management/lazy/exercises": ["libs/feature/lazy/exercises/src/index.ts"],
-      "@team-management/utils/http": ["libs/utils/http/src/index.ts"]
+      "@team-management/utils/http": ["libs/utils/http/src/index.ts"],
+      "@team-management/api/exercises": ["libs/feature/api/exercises/src/index.ts"],
+      "@team-management/api/exercises/*": ["libs/feature/api/exercises/src/lib/*"],
+      "@team-management/api/common": ["libs/feature/api/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
