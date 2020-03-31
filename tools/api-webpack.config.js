@@ -24,7 +24,7 @@ module.exports = function(config, context) {
       onStart({ compilation }) {
         console.log('Start detecting webpack modules cycles');
         numCyclesDetected = 0;
-      }, 
+      },
       // `onDetected` is called for each module that is cyclical
       onDetected({ module: webpackModuleRecord, paths, compilation }) {
         numCyclesDetected++;

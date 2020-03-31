@@ -37,7 +37,10 @@
       "tags": ["shared"]
     },
     "feature-api-exercises": {
-      "tags": ["feature:api"]
+      "tags": ["feature:api", "backend"]
+    },
+    "feature-api-common": {
+      "tags": ["feature:shared", "backend"]
     }
   }
 }

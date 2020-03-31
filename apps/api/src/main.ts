@@ -8,6 +8,8 @@ import { environment as envDev } from './environments/environment';
 import { environment as envProd } from './environments/environment.prod';
 
 async function bootstrap() {
+  // implement swagger plugin
+  // create user so it's possible to implement JWT strategy
   const logger = new Logger(`${chalk.blueBright('Start')}`);
 
   // Get environment according to NODE_ENV, initialize app and config service
@@ -20,12 +22,13 @@ async function bootstrap() {
   app.use(express.json({ limit: '50mb' }));
   app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-  // Set global prefix for all endpoints 
+  // Set global prefix for all endpoints
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 
   // Application start
   const port = configService.get<number>('PORT') || 3333;
+  // prettier-ignore
   await app.listen(port, () => {
     Logger.log(`
     ${chalk.magentaBright(` _______ ___  ___ ___  ___ `)}${chalk.whiteBright(`                   __      __`)}

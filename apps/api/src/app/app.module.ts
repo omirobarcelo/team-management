@@ -1,6 +1,7 @@
-import { DynamicModule, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { DynamicModule, MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RestLoggerMiddleware } from '@team-management/api/common';
 import { ExercisesModule } from '@team-management/api/exercises';
 import { databaseProviders } from './database.providers';
 import { validationSchema } from './validate-input';
@@ -25,5 +26,8 @@ export class AppModule implements NestModule {
     };
   }
 
-  public configure(consumer: MiddlewareConsumer) {}
+  public configure(consumer: MiddlewareConsumer) {
+    // Enable REST logger middleware for all routes
+    consumer.apply(RestLoggerMiddleware).forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
 }
