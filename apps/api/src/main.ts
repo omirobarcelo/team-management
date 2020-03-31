@@ -1,16 +1,17 @@
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as chalk from 'chalk';
 import * as express from 'express';
+import { readFileSync } from 'fs';
 import { AppModule } from './app/app.module';
 import { environment as envDev } from './environments/environment';
 import { environment as envProd } from './environments/environment.prod';
 
 async function bootstrap() {
-  // implement swagger plugin
-  // create user so it's possible to implement JWT strategy
   const logger = new Logger(`${chalk.blueBright('Start')}`);
+  const packageBody = JSON.parse(readFileSync('./package.json').toString());
 
   // Get environment according to NODE_ENV, initialize app and config service
   const environment = process.env.NODE_ENV === 'production' ? envProd : envDev;
@@ -23,8 +24,22 @@ async function bootstrap() {
   app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
   // Set global prefix for all endpoints
-  const globalPrefix = 'api';
+  const globalPrefix = configService.get<string>('API_ENDPOINT', 'api');
   app.setGlobalPrefix(globalPrefix);
+
+  // Swagger configuration
+  const documentBuilder = new DocumentBuilder()
+    .setTitle('GYMnastika API')
+    .setDescription(
+      `GYMnastika API, for team management.
+       JSON available at <a href="../docs-json">${globalPrefix}/docs-json</a>`
+    )
+    .setVersion(packageBody.version)
+    .addBearerAuth()
+    .build();
+
+  const document = SwaggerModule.createDocument(app, documentBuilder);
+  SwaggerModule.setup(`${globalPrefix}/docs`, app, document);
 
   // Application start
   const port = configService.get<number>('PORT') || 3333;
@@ -39,6 +54,7 @@ async function bootstrap() {
     `);
     logger.warn(`Environment: ${chalk.yellowBright(configService.get('NODE_ENV'))}`);
     logger.warn(`http://localhost:${port}/`);
+    logger.warn(`http://localhost:${port}/${globalPrefix}/docs`);
   });
 }
 

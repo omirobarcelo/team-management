@@ -46,6 +46,7 @@
     "@nestjs/config": "^0.4.0",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/swagger": "^4.5.1",
     "@nestjs/typeorm": "^7.0.0",
     "@nrwl/angular": "^9.0.1",
     "chalk": "^3.0.0",
@@ -85,10 +86,11 @@
     "jest-preset-angular": "8.0.0",
     "prettier": "1.18.2",
     "prompt": "^1.0.0",
+    "swagger-ui-express": "^4.1.4",
     "ts-jest": "24.0.0",
     "ts-node": "~8.5.2",
     "tslint": "~5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~3.7.4"
+    "typescript": "~3.7.5"
   }
 }

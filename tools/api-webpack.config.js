@@ -2,6 +2,8 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const glob = require('glob');
 const path = require('path');
+const ts = require('typescript');
+const webpack = require('webpack');
 
 let numCyclesDetected = 0;
 
@@ -14,9 +16,12 @@ module.exports = function(config, context) {
     ...getMigrationEntries(migrationPaths)
   };
 
-  // addSwagger
+  addSwagger(config);
 
   config.plugins = [
+    new webpack.ProvidePlugin({
+      openapi: '@nestjs/swagger'
+    }),
     new CleanWebpackPlugin({
       verbose: true
     }),
@@ -61,6 +66,34 @@ module.exports = function(config, context) {
 
   return config;
 };
+
+/**
+ * Adds nestjs swagger plugin
+ * https://github.com/nrwl/nx/issues/2147
+ * nestjs swagger: https://docs.nestjs.com/recipes/swagger#plugin
+ * ts-loader: https://github.com/Igorbek/typescript-plugin-styled-components#ts-loader
+ * getCustomTransformers: https://github.com/TypeStrong/ts-loader#getcustomtransformers
+ */
+function addSwagger(config) {
+  const rule = config.module.rules.find(rule => rule.loader === 'ts-loader');
+  if (!rule) throw new Error('no ts-loader rule found');
+  rule.options = {
+    ...rule.options,
+    getCustomTransformers: () => {
+      const program = ts.createProgram([path.join(__dirname, 'main.ts')], {});
+      return {
+        before: [
+          require('@nestjs/swagger/plugin').before(
+            {
+              classValidatorShim: true
+            },
+            program
+          )
+        ]
+      };
+    }
+  };
+}
 
 /**
  * Converts globbed migrations to an entry object

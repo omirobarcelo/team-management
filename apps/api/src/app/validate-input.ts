@@ -10,6 +10,7 @@ export const validationSchema = () => {
     TYPEORM_SYNCHRONIZE: Joi.bool(),
     TYPEORM_ENABLE_LOGGING: Joi.bool(),
     TYPEORM_MIGRATIONS_RUN: Joi.bool(),
-    DROP_SCHEMA: Joi.bool()
+    DROP_SCHEMA: Joi.bool(),
+    API_ENDPOINT: Joi.string().default('api')
   });
 };
