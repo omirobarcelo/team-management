@@ -1,4 +1,4 @@
-import { DatedEntity } from '@team-management/api/common';
+import { DatedEntity } from '@team-management-api/common';
 import { Column, Entity } from 'typeorm';
 
 @Entity('exercise')

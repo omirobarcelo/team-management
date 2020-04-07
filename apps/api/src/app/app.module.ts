@@ -2,8 +2,8 @@ import { DynamicModule, MiddlewareConsumer, Module, NestModule, RequestMethod } 
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CustomExceptionFilter, RestLoggerMiddleware } from '@team-management/api/common';
-import { ExercisesModule } from '@team-management/api/exercises';
+import { CustomExceptionFilter, RestLoggerMiddleware } from '@team-management-api/common';
+import { ExercisesModule } from '@team-management-api/exercises';
 import { databaseProviders } from './database.providers';
 import { validationSchema } from './validate-input';
 

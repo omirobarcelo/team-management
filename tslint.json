@@ -59,7 +59,7 @@
           },
           {
             "sourceTag": "feature:lazy",
-            "onlyDependOnLibsWithTags": ["shared", "feature:shared", "feature:api"]
+            "onlyDependOnLibsWithTags": ["shared", "feature:shared"]
           },
           {
             "sourceTag": "feature:api",
@@ -67,7 +67,7 @@
           },
           {
             "sourceTag": "feature:shared",
-            "onlyDependOnLibsWithTags": ["shared", "feature:api"]
+            "onlyDependOnLibsWithTags": ["shared", "feature:shared"]
           }
         ]
       }

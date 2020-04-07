@@ -1,7 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
-import { exercisesEntities } from '@team-management/api/exercises';
+import { exercisesEntities } from '@team-management-api/exercises';
 import * as path from 'path';
 
 export const databaseProviders = (configService: ConfigService) => {

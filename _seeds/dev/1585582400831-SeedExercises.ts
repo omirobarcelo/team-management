@@ -1,6 +1,6 @@
 import { plainToClass } from 'class-transformer';
 import { MigrationInterface, QueryRunner } from 'typeorm';
-import { ExerciseEntity } from '@team-management/api/exercises/entities/exercise.entity';
+import { ExerciseEntity } from '@team-management-api/exercises/entities/exercise.entity';
 
 export class SeedExercises1585582400831 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
