@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -18,6 +18,10 @@ async function bootstrap() {
   // TODO may be missing auth, passport, and core providers (similar to pantabio)
   const app = await NestFactory.create(AppModule.forRoot(), { cors: environment.cors });
   const configService = app.get(ConfigService);
+
+  // Set validation pipe
+  // TODO decide if setting { transform: true }
+  app.useGlobalPipes(new ValidationPipe());
 
   // Parse JSON and encoded URLs to have access to the request and body
   app.use(express.json({ limit: '50mb' }));

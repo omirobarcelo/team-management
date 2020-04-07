@@ -16,6 +16,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 registerLocaleData(en);
 
+// TODO config service worker, reload error handler, and sentry error handler
+// TODO i18n
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent],
   imports: [
