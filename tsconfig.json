@@ -25,7 +25,8 @@
       "@team-management-api/exercises/*": ["libs/feature/api/exercises/src/lib/*"],
       "@team-management-api/common": ["libs/feature/api/common/src/index.ts"],
       "@team-management-api/core": ["libs/feature/api/core/src/index.ts"],
-      "@team-management-api/core/*": ["libs/feature/api/core/src/lib/*"]
+      "@team-management-api/core/*": ["libs/feature/api/core/src/lib/*"],
+      "@team-management-api/auth": ["libs/feature/api/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

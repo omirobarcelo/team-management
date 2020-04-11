@@ -2,7 +2,9 @@ import { DynamicModule, MiddlewareConsumer, Module, NestModule, RequestMethod } 
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from '@team-management-api/auth';
 import { CustomExceptionFilter, RestLoggerMiddleware } from '@team-management-api/common';
+import { CoreModule } from '@team-management-api/core';
 import { ExercisesModule } from '@team-management-api/exercises';
 import { databaseProviders } from './database.providers';
 import { validationSchema } from './validate-input';
@@ -22,6 +24,8 @@ export class AppModule implements NestModule {
           inject: [ConfigService],
           useFactory: async (configService: ConfigService) => databaseProviders(configService)
         }),
+        CoreModule.forRoot(),
+        AuthModule.forRoot(),
         ExercisesModule.forRoot()
       ],
       providers: [

@@ -43,7 +43,10 @@
       "tags": ["shared", "backend"]
     },
     "feature-api-core": {
-      "tags": ["shared", "backend"]
+      "tags": ["feature:api", "backend"]
+    },
+    "feature-api-auth": {
+      "tags": ["feature:api", "backend"]
     }
   }
 }
