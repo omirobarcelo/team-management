@@ -1,6 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
+import { coreEntities } from '@team-management-api/core';
 import { exercisesEntities } from '@team-management-api/exercises';
 import * as path from 'path';
 
@@ -9,7 +10,7 @@ export const databaseProviders = (configService: ConfigService) => {
 
   const commonDB: TypeOrmModuleOptions = {
     type: 'sqlite',
-    entities: [...exercisesEntities]
+    entities: [...coreEntities, ...exercisesEntities]
   };
 
   const defaultDB: TypeOrmModuleOptions = {

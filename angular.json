@@ -382,6 +382,29 @@
           }
         }
       }
+    },
+    "feature-api-core": {
+      "root": "libs/feature/api/core",
+      "sourceRoot": "libs/feature/api/core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/api/core/tsconfig.lib.json", "libs/feature/api/core/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/core/jest.config.js",
+            "tsConfig": "libs/feature/api/core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

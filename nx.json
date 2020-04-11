@@ -41,6 +41,9 @@
     },
     "feature-api-common": {
       "tags": ["shared", "backend"]
+    },
+    "feature-api-core": {
+      "tags": ["shared", "backend"]
     }
   }
 }
