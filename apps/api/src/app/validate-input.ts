@@ -11,6 +11,7 @@ export const validationSchema = () => {
     TYPEORM_ENABLE_LOGGING: Joi.bool().default(false),
     TYPEORM_MIGRATIONS_RUN: Joi.bool().default(true),
     DROP_SCHEMA: Joi.bool().default(false),
-    API_ENDPOINT: Joi.string().default('api')
+    API_ENDPOINT: Joi.string().default('api'),
+    JWT_EXPIRATION: Joi.string().default('7 days')
   });
 };

@@ -8,3 +8,5 @@ export * from './lib/filters/custom-exception.filter';
 export * from './lib/middlewares/rest-logger.middleware';
 
 export * from './lib/services/crud.service';
+
+export * from './lib/utils/controller-response';
