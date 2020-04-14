@@ -11,7 +11,6 @@ export class CustomExceptionFilter implements ExceptionFilter {
     exception: CustomValidationError | SyntaxError | Error | HttpException | JsonWebTokenError,
     host: ArgumentsHost
   ) {
-    Logger.error('catched error', 'CustomExceptionFilter');
     if (exception instanceof CustomValidationError) {
       const errors = {};
       exception.errors.forEach((error: ValidationError) => {
