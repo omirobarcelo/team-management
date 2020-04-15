@@ -428,6 +428,35 @@
           }
         }
       }
+    },
+    "feature-shared-auth": {
+      "projectType": "library",
+      "root": "libs/feature/shared/auth",
+      "sourceRoot": "libs/feature/shared/auth/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/shared/auth/tsconfig.lib.json", "libs/feature/shared/auth/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/shared/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/shared/auth/jest.config.js",
+            "tsConfig": "libs/feature/shared/auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/shared/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

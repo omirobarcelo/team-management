@@ -47,6 +47,9 @@
     },
     "feature-api-auth": {
       "tags": ["feature:api", "backend"]
+    },
+    "feature-shared-auth": {
+      "tags": ["feature:shared", "frontend"]
     }
   }
 }
