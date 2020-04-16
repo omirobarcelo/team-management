@@ -113,7 +113,7 @@ export abstract class CrudService<T extends IdentifiedEntity> {
    * Validates an item instance
    * @param entity
    */
-  private async validate(entity: T) {
+  private async validate(entity: T): Promise<void> {
     const errors = await validate(entity, {
       validationError: {
         target: true,

@@ -33,7 +33,7 @@ export class UserEntity extends DatedEntity {
    * Generate a password hash
    * @param password
    */
-  static async createPassword(password: string) {
+  static async createPassword(password: string): Promise<string> {
     return bCrypt.hash(password, bCrypt.genSaltSync(8));
   }
 
@@ -41,7 +41,7 @@ export class UserEntity extends DatedEntity {
    * Validate password through hash
    * @param password
    */
-  async validatePassword(password: string) {
+  async validatePassword(password: string): Promise<boolean> {
     return bCrypt.compare(password, this.password);
   }
 
@@ -49,7 +49,7 @@ export class UserEntity extends DatedEntity {
    * Set the users password
    * @param password
    */
-  async setPassword(password: string) {
+  async setPassword(password: string): Promise<UserEntity> {
     if (password) {
       this.password = await UserEntity.createPassword(password);
     }
@@ -57,7 +57,7 @@ export class UserEntity extends DatedEntity {
   }
 
   @BeforeInsert()
-  doBeforeInsertion() {
+  doBeforeInsertion(): void {
     const errors = validateSync(this, { validationError: { target: false } });
     if (errors.length > 0) {
       throw new CustomValidationError(errors);
@@ -65,7 +65,7 @@ export class UserEntity extends DatedEntity {
   }
 
   @BeforeUpdate()
-  doBeforeUpdate() {
+  doBeforeUpdate(): void {
     const errors = validateSync(this, { validationError: { target: false } });
     if (errors.length > 0) {
       throw new CustomValidationError(errors);
