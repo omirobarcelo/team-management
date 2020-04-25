@@ -29,5 +29,7 @@ import { LoadingService } from '@team-management/shared/app-services';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  title = 'Gymnastika';
+
   constructor(public loadingService: LoadingService) {}
 }
