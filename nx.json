@@ -50,6 +50,9 @@
     },
     "feature-shared-auth": {
       "tags": ["feature:shared", "frontend"]
+    },
+    "feature-shared-app-services": {
+      "tags": ["feature:shared", "frontend"]
     }
   }
 }

@@ -5,7 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@team-management/utils/http';
-import { en_US, NgZorroAntdModule, NZ_I18N } from 'ng-zorro-antd';
+import { en_US, NZ_I18N } from 'ng-zorro-antd';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { routes } from './app.routing';
@@ -25,7 +28,9 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgZorroAntdModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzProgressModule,
     HttpModule.forRoot({ environment }),
     RouterModule.forRoot(routes, {
       enableTracing: environment.traceRoute,

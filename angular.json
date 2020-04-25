@@ -457,6 +457,38 @@
           "style": "scss"
         }
       }
+    },
+    "feature-shared-app-services": {
+      "projectType": "library",
+      "root": "libs/feature/shared/app-services",
+      "sourceRoot": "libs/feature/shared/app-services/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/shared/app-services/tsconfig.lib.json",
+              "libs/feature/shared/app-services/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/shared/app-services/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/shared/app-services/jest.config.js",
+            "tsConfig": "libs/feature/shared/app-services/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/shared/app-services/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
