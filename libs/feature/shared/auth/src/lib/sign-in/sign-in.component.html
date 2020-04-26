@@ -1,0 +1,70 @@
+<div class="cover-container">
+  <img class="cover" src="./assets/auth-background.jpg" alt="Gym background" />
+  <a
+    class="reference"
+    style='background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px'
+    href="https://unsplash.com/@risennnnn?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Download free do whatever you want high-resolution photos from Risen Wang"
+  >
+    <span style="display:inline-block;padding:2px 3px">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+        viewBox="0 0 32 32"
+      >
+        <title>unsplash-logo</title>
+        <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+      </svg>
+    </span>
+    <span style="display:inline-block;padding:2px 3px">Risen Wang</span>
+  </a>
+</div>
+<div class="login-container">
+  <form nz-form [formGroup]="signInForm" (ngSubmit)="login()">
+    <!-- E-mail -->
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Enter your e-mail">
+        <nz-input-group [nzPrefixIcon]="'mail'">
+          <input nz-input type="email" placeholder="E-mail" formControlName="email" aria-label="E-mail" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Password -->
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Enter your password">
+        <nz-input-group [nzPrefixIcon]="'lock'" [nzSuffix]="passwordVisible">
+          <input
+            nz-input
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Password"
+            formControlName="password"
+            aria-label="Password"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Submit -->
+    <button nz-button nzType="primary" type="submit" [disabled]="!signInForm.valid">Login</button>
+  </form>
+
+  <a nz-button nzType="link">Forgot your password?</a>
+
+  <nz-alert
+    *ngIf="serverErrorMsg"
+    nzType="error"
+    nzCloseable
+    [nzMessage]="serverErrorMsg"
+    (nzOnClose)="serverErrorMsg = ''"
+  ></nz-alert>
+
+  <ng-template #passwordVisible>
+    <i
+      nz-icon
+      [nzType]="showPassword ? 'eye-invisible' : 'eye'"
+      (click)="showPassword = !showPassword"
+      style="cursor: pointer;"
+    ></i>
+  </ng-template>
+</div>

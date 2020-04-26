@@ -36,12 +36,12 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('Gymnastika');
   });
 
-  it('should not show loading by default' ,() => {
+  it('should not show loading by default', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('nz-progress')).toBeFalsy();
   });
 
-  it('should show loading when app loading is true' ,() => {
+  it('should show loading when app loading is true', () => {
     component.loadingService.appLoading = true;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;

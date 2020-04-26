@@ -1,0 +1,47 @@
+.cover-container {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  overflow: hidden;
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reference {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.75rem;
+  }
+}
+
+.login-container {
+  height: 20rem;
+  max-height: 95%;
+  width: 25rem;
+  max-width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ghostwhite;
+  border: 10px solid #722ed1;
+  border-radius: 5px;
+
+  padding: 2rem 1rem;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  form {
+    width: 90%;
+
+    button[type='submit'] {
+      width: 100%;
+    }
+  }
+}
