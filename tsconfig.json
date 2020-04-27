@@ -23,6 +23,7 @@
       "@team-management/shared/auth": ["libs/feature/shared/auth/src/index.ts"],
       "@team-management/shared/app-services": ["libs/feature/shared/app-services/src/index.ts"],
       "@team-management/utils/http": ["libs/utils/http/src/index.ts"],
+      "@team-management/utils/http/*": ["libs/utils/http/src/lib/*"],
       "@team-management-api/exercises": ["libs/feature/api/exercises/src/index.ts"],
       "@team-management-api/exercises/*": ["libs/feature/api/exercises/src/lib/*"],
       "@team-management-api/common": ["libs/feature/api/common/src/index.ts"],

@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from '@team-management/shared/auth';
 import { HttpModule } from '@team-management/utils/http';
+import { InterceptorsModule } from '@team-management/utils/http/interceptors/interceptors.module';
 import { en_US, NZ_I18N } from 'ng-zorro-antd';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -33,6 +34,7 @@ registerLocaleData(en);
     NzMenuModule,
     NzProgressModule,
     HttpModule.forRoot({ environment }),
+    InterceptorsModule,
     AuthModule,
     RouterModule.forRoot(routes, {
       enableTracing: environment.traceRoute,
