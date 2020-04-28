@@ -1,8 +1,11 @@
+import { DynamicModule, MiddlewareConsumer, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CoreModule } from '@team-management-api/core';
-import { DynamicModule, MiddlewareConsumer, Module } from '@nestjs/common';
 import { authControllers } from './controllers';
 import { authServices } from './services';
+import { JwtStrategy } from './strategies/jwt.strategy';
+
+const strategies = [JwtStrategy];
 
 @Module({})
 export class AuthModule {
@@ -10,7 +13,7 @@ export class AuthModule {
     return {
       module: AuthModule,
       imports: [ConfigModule, CoreModule.forFeature()],
-      providers: [...authServices],
+      providers: [...authServices, ...strategies],
       exports: []
     };
   }
@@ -20,7 +23,7 @@ export class AuthModule {
       module: AuthModule,
       imports: [ConfigModule, CoreModule.forFeature()],
       controllers: [...authControllers],
-      providers: [...authServices],
+      providers: [...authServices, ...strategies],
       exports: []
     };
   }

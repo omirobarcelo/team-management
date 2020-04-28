@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { UserEntity } from '@team-management-api/core/entities/user.entity';
+import { RoleType } from '@team-management/data/types';
 import * as fs from 'fs';
 import { sign } from 'jsonwebtoken';
 
 @Injectable()
 export class JwtService {
-  static readonly RSA_PUBLIC_KEY = fs.readFileSync('./public.key');
-  static readonly RSA_PRIVATE_KEY = fs.readFileSync('./private.key');
+  public static readonly RSA_PUBLIC_KEY = fs.readFileSync('./public.key');
+  public static readonly RSA_PRIVATE_KEY = fs.readFileSync('./private.key');
 
-  static readonly ALG = 'RS256';
+  public static readonly ALG = 'RS256';
 
   expiration: string;
 
@@ -17,7 +18,7 @@ export class JwtService {
     this.expiration = this._configService.get('JWT_EXPIRATION', '7 days');
   }
 
-  private static sign(userId: string, role: 'admin' | 'trainer' | 'player', expiration: string): string {
+  private static sign(userId: string, role: RoleType, expiration: string): string {
     return sign(
       {
         id: userId,

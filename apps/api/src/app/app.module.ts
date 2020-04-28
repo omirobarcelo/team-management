@@ -1,6 +1,7 @@
 import { DynamicModule, MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
+import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '@team-management-api/auth';
 import { CustomExceptionFilter, RestLoggerMiddleware } from '@team-management-api/common';
@@ -24,6 +25,7 @@ export class AppModule implements NestModule {
           inject: [ConfigService],
           useFactory: async (configService: ConfigService) => databaseProviders(configService)
         }),
+        PassportModule.register({ defaultStrategy: 'jwt' }),
         CoreModule.forRoot(),
         AuthModule.forRoot(),
         ExercisesModule.forRoot()

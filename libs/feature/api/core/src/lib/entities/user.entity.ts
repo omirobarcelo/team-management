@@ -1,7 +1,8 @@
-import { DatedEntity, CustomValidationError } from '@team-management-api/common';
-import { Column, Entity, BeforeInsert, BeforeUpdate } from 'typeorm';
-import { IsNotEmpty, IsEmail, MaxLength, validateSync } from 'class-validator';
+import { CustomValidationError, DatedEntity } from '@team-management-api/common';
+import { RoleType } from '@team-management/data/types';
 import * as bCrypt from 'bcryptjs';
+import { IsEmail, IsNotEmpty, MaxLength, validateSync } from 'class-validator';
+import { BeforeInsert, BeforeUpdate, Column, Entity } from 'typeorm';
 
 @Entity('user')
 export class UserEntity extends DatedEntity {
@@ -27,7 +28,7 @@ export class UserEntity extends DatedEntity {
   lastName: string;
 
   @Column('varchar', { nullable: false })
-  role: 'admin' | 'trainer' | 'player';
+  role: RoleType;
 
   /**
    * Generate a password hash
