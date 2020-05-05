@@ -17,7 +17,9 @@ export class AppModule implements NestModule {
       module: AppModule,
       imports: [
         ConfigModule.forRoot({
-          envFilePath: '.env.dev',
+          // Nx overwrites NODE_ENV on compilation, so this is a workaround to get the real value
+          // https://stackoverflow.com/a/59805161/8526764
+          envFilePath: AppModule.getEnvFile(process.env['NODE' + '_ENV']),
           validationSchema: validationSchema()
         }),
         TypeOrmModule.forRootAsync({
@@ -37,6 +39,23 @@ export class AppModule implements NestModule {
         }
       ]
     };
+  }
+
+  private static getEnvFile(nodeEnv: string): string {
+    let envFile = '.env.dev';
+    switch (nodeEnv) {
+      case 'production':
+        envFile = '.env.prod';
+        break;
+      case 'test':
+        envFile = '.env.test';
+        break;
+      case 'development':
+      default:
+        envFile = '.env.dev';
+        break;
+    }
+    return envFile;
   }
 
   public configure(consumer: MiddlewareConsumer) {
