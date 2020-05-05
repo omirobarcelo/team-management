@@ -27,7 +27,7 @@
     <nz-form-item>
       <nz-form-control nzErrorTip="Enter your e-mail">
         <nz-input-group [nzPrefixIcon]="'mail'">
-          <input nz-input type="email" placeholder="E-mail" formControlName="email" aria-label="E-mail" />
+          <input nz-input name="email" type="email" placeholder="E-mail" formControlName="email" aria-label="E-mail" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -37,6 +37,7 @@
         <nz-input-group [nzPrefixIcon]="'lock'" [nzSuffix]="passwordVisible">
           <input
             nz-input
+            name="password"
             [type]="showPassword ? 'text' : 'password'"
             placeholder="Password"
             formControlName="password"
@@ -53,6 +54,7 @@
 
   <nz-alert
     *ngIf="serverErrorMsg"
+    data-cy="error-msg"
     nzType="error"
     nzCloseable
     [nzMessage]="serverErrorMsg"

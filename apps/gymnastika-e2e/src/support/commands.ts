@@ -10,13 +10,31 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
   interface Chainable<Subject> {
+    /**
+     * Programatic login
+     * @param email
+     * @param password
+     */
     login(email: string, password: string): void;
   }
 }
 //
-// -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+// -- Parent commands --
+Cypress.Commands.add('login', (email: string, password: string) => {
+  cy.request({
+    url: `http://localhost:${Cypress.env('baseUrl')}/${Cypress.env('apiPath')}/auth/sign-in`,
+    method: 'POST',
+    body: {
+      email,
+      password
+    }
+  })
+    .its('body')
+    .then(body => {
+      cy.window()
+        .its('localStorage')
+        .invoke('setItem', 'token', body.token);
+    });
 });
 //
 // -- This is a child command --

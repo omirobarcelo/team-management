@@ -62,6 +62,35 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gymnastika/src/environments/environment.ts",
+                  "with": "apps/gymnastika/src/environments/environment.test.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -74,6 +103,9 @@
           "configurations": {
             "production": {
               "browserTarget": "gymnastika:build:production"
+            },
+            "test": {
+              "browserTarget": "gymnastika:build:test"
             }
           }
         },
@@ -111,11 +143,11 @@
           "options": {
             "cypressConfig": "apps/gymnastika-e2e/cypress.json",
             "tsConfig": "apps/gymnastika-e2e/tsconfig.e2e.json",
-            "devServerTarget": "gymnastika:serve"
+            "devServerTarget": "gymnastika:serve:test"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gymnastika:serve:production"
+              "devServerTarget": "gymnastika:serve:test"
             }
           }
         },

@@ -8,5 +8,13 @@
   "video": true,
   "videosFolder": "../../dist/cypress/apps/gymnastika-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/gymnastika-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "baseUrl": "http://localhost:4200",
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "env": {
+    "baseUrl": 3001,
+    "apiPath": "api",
+    "frontendPath": "http://localhost:4200"
+  }
 }
