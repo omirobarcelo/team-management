@@ -40,7 +40,19 @@
       "tags": ["feature:api", "backend"]
     },
     "feature-api-common": {
-      "tags": ["feature:shared", "backend"]
+      "tags": ["shared", "backend"]
+    },
+    "feature-api-core": {
+      "tags": ["feature:api", "backend"]
+    },
+    "feature-api-auth": {
+      "tags": ["feature:api", "backend"]
+    },
+    "feature-shared-auth": {
+      "tags": ["feature:shared", "frontend"]
+    },
+    "feature-shared-app-services": {
+      "tags": ["feature:shared", "frontend"]
     }
   }
 }

@@ -1,15 +1,19 @@
-import { Controller, Get, InternalServerErrorException, Logger } from '@nestjs/common';
+import { Controller, Get, InternalServerErrorException, Logger, Req, UseGuards } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiForbiddenResponse,
   ApiInternalServerErrorResponse,
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse
 } from '@nestjs/swagger';
+import { SnkAuthGuard } from '@team-management-api/auth/guards/auth.guard';
 import { plainToClass } from 'class-transformer';
 import { ExerciseDto } from '../dtos/exercise.dto';
 import { ExercisesService } from '../services/exercises.service';
 
+@ApiBearerAuth()
+@UseGuards(SnkAuthGuard)
 @ApiUnauthorizedResponse({ description: 'Unauthorized' })
 @ApiForbiddenResponse({ description: 'Forbidden' })
 @ApiInternalServerErrorResponse({ description: 'Internal Request Error' })
@@ -35,7 +39,8 @@ export class ExercisesController {
     isArray: true
   })
   @Get()
-  async getAll(): Promise<ExerciseDto[]> {
+  async getAll(@Req() req): Promise<ExerciseDto[]> {
+    Logger.log(req.user, 'req.user');
     const action = async (resolve, reject) => {
       resolve(plainToClass(ExerciseDto, await this._service.getAll(), { strategy: 'excludeAll' }));
     };

@@ -62,6 +62,35 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/gymnastika/src/environments/environment.ts",
+                  "with": "apps/gymnastika/src/environments/environment.test.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -74,6 +103,9 @@
           "configurations": {
             "production": {
               "browserTarget": "gymnastika:build:production"
+            },
+            "test": {
+              "browserTarget": "gymnastika:build:test"
             }
           }
         },
@@ -111,11 +143,11 @@
           "options": {
             "cypressConfig": "apps/gymnastika-e2e/cypress.json",
             "tsConfig": "apps/gymnastika-e2e/tsconfig.e2e.json",
-            "devServerTarget": "gymnastika:serve"
+            "devServerTarget": "gymnastika:serve:test"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gymnastika:serve:production"
+              "devServerTarget": "gymnastika:serve:test"
             }
           }
         },
@@ -155,6 +187,14 @@
                   "with": "apps/api/src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.ts"
+                }
+              ]
             }
           }
         },
@@ -166,6 +206,9 @@
           "configurations": {
             "production": {
               "buildTarget": "api:build:production"
+            },
+            "test": {
+              "buildTarget": "api:build:test"
             }
           }
         },
@@ -380,6 +423,113 @@
             "tsConfig": "libs/feature/api/common/tsconfig.spec.json",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "feature-api-core": {
+      "root": "libs/feature/api/core",
+      "sourceRoot": "libs/feature/api/core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/api/core/tsconfig.lib.json", "libs/feature/api/core/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/core/jest.config.js",
+            "tsConfig": "libs/feature/api/core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "feature-api-auth": {
+      "root": "libs/feature/api/auth",
+      "sourceRoot": "libs/feature/api/auth/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/api/auth/tsconfig.lib.json", "libs/feature/api/auth/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/api/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/api/auth/jest.config.js",
+            "tsConfig": "libs/feature/api/auth/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "feature-shared-auth": {
+      "projectType": "library",
+      "root": "libs/feature/shared/auth",
+      "sourceRoot": "libs/feature/shared/auth/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/feature/shared/auth/tsconfig.lib.json", "libs/feature/shared/auth/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/feature/shared/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/shared/auth/jest.config.js",
+            "tsConfig": "libs/feature/shared/auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/shared/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "feature-shared-app-services": {
+      "projectType": "library",
+      "root": "libs/feature/shared/app-services",
+      "sourceRoot": "libs/feature/shared/app-services/src",
+      "prefix": "snk",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/shared/app-services/tsconfig.lib.json",
+              "libs/feature/shared/app-services/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/shared/app-services/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/shared/app-services/jest.config.js",
+            "tsConfig": "libs/feature/shared/app-services/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/feature/shared/app-services/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

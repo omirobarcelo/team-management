@@ -1,7 +1,8 @@
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
-import { exercisesEntities } from '@team-management/api/exercises';
+import { coreEntities } from '@team-management-api/core';
+import { exercisesEntities } from '@team-management-api/exercises';
 import * as path from 'path';
 
 export const databaseProviders = (configService: ConfigService) => {
@@ -9,7 +10,7 @@ export const databaseProviders = (configService: ConfigService) => {
 
   const commonDB: TypeOrmModuleOptions = {
     type: 'sqlite',
-    entities: [...exercisesEntities]
+    entities: [...coreEntities, ...exercisesEntities]
   };
 
   const defaultDB: TypeOrmModuleOptions = {
@@ -26,7 +27,22 @@ export const databaseProviders = (configService: ConfigService) => {
     dropSchema: configService.get<boolean>('DROP_SCHEMA', false)
   };
 
-  Logger.debug(defaultDB.database, 'Loading database');
-  Logger.debug(defaultDB.migrations, 'Running Migrations');
-  return defaultDB;
+  const testDB: TypeOrmModuleOptions = {
+    ...commonDB,
+    database: path.join(
+      configService.get('APP_ROOT_PATH', '.'),
+      configService.get('TYPEORM_DATABASE', 'gym-test.sqlite')
+    ),
+    logging: ['error'],
+    cache: false,
+    synchronize: configService.get<boolean>('TYPEORM_SYNCHRONIZE', false),
+    migrations: [normalizePath('_migrations/*.js'), normalizePath('_seeds/test/*.js')],
+    migrationsRun: configService.get<boolean>('TYPEORM_MIGRATIONS_RUN', true),
+    dropSchema: true
+  };
+
+  const DBconfig = configService.get('NODE_ENV') === 'test' ? testDB : defaultDB;
+  Logger.debug(DBconfig.database, 'Loading database');
+  Logger.debug(DBconfig.migrations, 'Running Migrations');
+  return DBconfig;
 };

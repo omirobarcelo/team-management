@@ -4,8 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from '@team-management/shared/auth';
 import { HttpModule } from '@team-management/utils/http';
-import { en_US, NgZorroAntdModule, NZ_I18N } from 'ng-zorro-antd';
+import { InterceptorsModule } from '@team-management/utils/http/interceptors/interceptors.module';
+import { en_US, NZ_I18N } from 'ng-zorro-antd';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { routes } from './app.routing';
@@ -16,6 +21,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 registerLocaleData(en);
 
+// TODO config service worker, reload error handler, and sentry error handler
+// TODO i18n
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent],
   imports: [
@@ -23,8 +30,12 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgZorroAntdModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzProgressModule,
     HttpModule.forRoot({ environment }),
+    InterceptorsModule,
+    AuthModule,
     RouterModule.forRoot(routes, {
       enableTracing: environment.traceRoute,
       initialNavigation: 'enabled',

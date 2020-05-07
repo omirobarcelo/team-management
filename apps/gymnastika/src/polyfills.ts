@@ -60,3 +60,6 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// Only used in multilingual Ivy applications
+// import '@angular/localize/init';

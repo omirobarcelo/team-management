@@ -8,6 +8,11 @@ console.error(`${chalk.yellow('Entering migration creation process - Specify mig
 
 const prompt_attributes = [
   {
+    name: 'MigrationDirectory',
+    default: '_migrations',
+    required: true
+  },
+  {
     name: 'MigrationType',
     description: 'Type - [1]: Create Empty [2]: Generate from database',
     pattern: /^[12]{1}$/,
@@ -34,7 +39,7 @@ prompt.get(prompt_attributes, function(err, result) {
     const nodeEnv = `dev`;
     const migrationType = result.MigrationType === '1' ? 'create' : 'generate';
     const migrationName = result.MigrationName;
-    const migrationDirectory = `_migrations`;
+    const migrationDirectory = result.MigrationDirectory;
 
     console.log(`Loading Environment Data...`);
     const env = require('dotenv').config({ path: path.join(__dirname, `../.env.${nodeEnv}`) }).parsed;
