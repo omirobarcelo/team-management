@@ -40,7 +40,7 @@ export class CustomExceptionFilter implements ExceptionFilter {
         exception,
         host,
         {
-          message: exception.message && exception.message.message ? exception.message.message : 'Http exception'
+          message: exception.message ? exception.message : 'Http exception'
         },
         exception.getStatus()
       );
