@@ -174,7 +174,8 @@
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
             "assets": ["apps/api/src/assets"],
-            "webpackConfig": "tools/api-webpack.config.js"
+            "webpackConfig": "tools/api-webpack.config.js",
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {

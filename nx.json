@@ -54,5 +54,13 @@
     "feature-shared-app-services": {
       "tags": ["feature:shared", "frontend"]
     }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
   }
 }
